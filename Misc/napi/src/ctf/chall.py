@@ -14,7 +14,7 @@ def main():
 
         while inp != "exit":
             for keyword in banned:
-                if keyword in inp.lower():
+                if keyword in inp.lower() or not inp.isascii():
                     print(f"Cannot execute unauthorized input {inp}")
                     print("I told you our system is hack-proof.")
                     exit()
