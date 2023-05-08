@@ -1,6 +1,12 @@
 pushd frontend
+    mv .env .env.orig
+    cat > .env << EOF
+VITE_WS_URL=ws://localhost:555
+VITE_PRIME_URL=http://localhost:555/prime
+EOF
     yarn install
     yarn build
+    mv .env.orig .env
 popd
 
 rm -rf dist/frontend

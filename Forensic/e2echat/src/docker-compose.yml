@@ -10,8 +10,7 @@ services:
     image: joseluisq/static-web-server:2
     environment:
       - SERVER_PORT=80
-      - SERVER_ROOT=/public
-      - SERVER_FALLBACK_PAGE=index.html
+      - SERVER_ROOT=/public/dist
     ports:
       - "444:80"
     volumes:
