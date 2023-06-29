@@ -1,0 +1,16 @@
+{
+  "name": "wibu",
+  "version": "1.0.0",
+  "description": "wibu bw bwang",
+  "main": "torrent-maker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mmone",
+  "license": "ISC",
+  "dependencies": {
+    "create-torrent": "^6.0.11",
+    "parse-torrent": "^11.0.12"
+  },
+  "type": "module"
+}
