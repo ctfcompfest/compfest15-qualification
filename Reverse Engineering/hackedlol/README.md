@@ -22,7 +22,7 @@ easy
 * hint dst.
 
 ## Tags
-Tags dari soal pisahkan koma (e.g: tags1, tags2, tags3)
+Python Bytecode, Obfuscation
 
 ## Deployment
 Penjelasan cara menjalankan service yang dibutuhkan serta requirementsnya.
