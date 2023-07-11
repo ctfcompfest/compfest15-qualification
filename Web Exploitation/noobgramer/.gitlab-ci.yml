@@ -1,0 +1,18 @@
+image: docker:18
+
+services:
+  - docker:18-dind
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  only:
+    - main
+  script:
+    - curl ifconfig.me
+    - docker --version
+    - docker-compose --version
+    - sudo docker-compose up --build -d
+  tags: [s0lomon]
