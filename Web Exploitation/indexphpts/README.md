@@ -1,0 +1,32 @@
+# index.php.ts
+
+by rorre
+
+---
+
+## Flag
+
+```
+COMPFEST15{N0t_so_SSR_Alw4yS_cH3ck_f0r_R0le}
+```
+
+## Description
+I love Next.js 13! The server actions and components is very cool! It looks just like back then when I was writing PHP!
+
+`https://<ip>:<port>/`
+
+## Difficulty
+easy-medium
+
+## Hints
+* Your browser's debugger is a huge help!
+
+## Tags
+web, react, js
+
+## Deployment
+- Install docker engine>=19.03.12 and docker-compose>=1.26.2.
+- Run the container using:
+    ```
+    docker-compose up --build --detach
+	```
