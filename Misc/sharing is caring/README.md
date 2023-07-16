@@ -7,7 +7,7 @@ by Lily
 ## Flag
 
 ```
-ＣＯＭＰＦＥＳＴ１５｛ｂ３ｅｐ＿ｂ０ｐ＿＿ＢＥＥＰ＿ｂｏＰ＿ｃｌ４ｓＳｉＣ＿ｔ０ＲＲｅｎｔ＿ｄ９４ｃａ７５ｆ６２｝
+ＣＯＭＰＦＥＳＴ１５｛ｂ３ｅｐ＿＿ｂｏＰ＿ｃｌ４ｓＳｉＣ＿ｔ０ＲＲｅｎｔ＿ｄ９４ｃａ７５ｆ６２｝
 ```
 
 ## Description
@@ -18,7 +18,7 @@ easy-medium
 
 ## Hints
 * can you parse the torrent?
-* hmm, i wonder what kind of hash is used in the torrent piece
+* ever wonder which type of hash is used for the torrent pieces?
 * You do know that each particular unicode charsets may have different size (in byte) right? right??
 
 ## Tags
