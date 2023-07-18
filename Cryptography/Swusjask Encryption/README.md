@@ -9,7 +9,7 @@ COMPFEST15{multiplicative_group_modulo_polynomial_fbfb064756}
 ```
 
 ## Description
-RSA is widely known and used as cryptography encryption algorithm and work under group Zp under multiplication. What if I’m trying my own cryptography encryption algorithm that work under some my defined group with my defined multiplication operation. I think this cryptography algorithm have secure enough to encrypt my data
+RSA is widely known and used as cryptography encryption algorithm and work in group Zp under multiplication. What if I’m trying my own cryptography encryption algorithm that work under some my defined group with my defined multiplication operation. I think this cryptography algorithm have secure enough to encrypt my data
 
 ## Difficulty
 medium
