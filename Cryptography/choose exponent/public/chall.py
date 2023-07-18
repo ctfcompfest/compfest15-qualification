@@ -33,7 +33,7 @@ def main():
         if option == "1":
             e = int(input("Enter your public exponent (e cannot be 1 and even): "))
             if e == 1 or e % 2 == 0:
-                print("e cannot be 1 and even")
+                print("loh gak bahaya tah")
                 continue
             c = rsa.encrypt(m, e)
             print(f"Here is your encrypted flag: {c}")
