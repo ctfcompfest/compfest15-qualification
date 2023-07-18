@@ -88,5 +88,6 @@ dec = decrypt(enc, private_key)
 assert dec == message
 
 with open("output.txt", "w") as f:
+    # f.write(f"B = {public_key.B}\n")
     f.write(f"enc = {enc}\n")
     f.write(f"{message[:1194].decode()}")
