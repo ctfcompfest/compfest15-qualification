@@ -7,7 +7,7 @@ by k3ng
 ## Flag
 
 ```
-COMPFEST15{clo5e_y0ur_f1LE_0bj3ctS_plZzz___THXx!!!_63bf937957}
+COMPFEST15{clo5e_y0ur_f1LE_0bj3ctS_plZzz___THXx_053fac8f23}
 ```
 
 ## Description
