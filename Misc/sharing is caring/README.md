@@ -11,13 +11,13 @@ by Lily
 ```
 
 ## Description
-nihao nihao, wo jiao mone. actually, i prefer japanese over chinese. Even my keyboard is japanese full-width char. well, pleasure to meet with y’all, see ya!
+full-width japanese keyboard goes brrr!
 
 ## Difficulty
 easy-medium
 
 ## Hints
-* can you parse the torrent?
+* Perhaps parsing the torrent will help you
 * ever wonder which type of hash is used for the torrent pieces?
 * You do know that each particular unicode charsets may have different size (in byte) right? right??
 

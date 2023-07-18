@@ -1,8 +1,2 @@
 version: "3.9"
 services:
-  app:
-    build:
-      context: .
-    ports:
-        - "4321:9999"
-        - "6969:22"
