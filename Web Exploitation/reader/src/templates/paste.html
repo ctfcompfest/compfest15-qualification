@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="w-full">
+        <div class="min-h-screen flex flex-col gap-8 items-center container mx-auto pt-16 max-w-4xl">
+            <h1 class="font-bold text-4xl">COMPaste</h1>
+
+            <p>Paste ID: {{ paste_id }}</p>
+            <pre>{{ content }}</pre>
+        </div>
+    </div>
+</body>
+</html>
