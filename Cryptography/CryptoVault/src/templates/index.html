@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>F0xie Crypto Vault</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+    }
+
+    .form-group button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result-container {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>ECDSA Signature Verification</h1>
+  <h2>My PubKey is ce205d44c14517ba33f3ef313e404537854d494e28fcf71615e5f51c9a459f426080e22d9a44a5ce38741f8994ac3a14a6760f06dd1510b89b6907dfd5932868</h2>
+  <div class="form-container">
+    <div class="form-group">
+      <label for="signature">Signature:</label>
+      <input type="text" id="signature" placeholder="Signature">
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <input type="text" id="message" placeholder="Message">
+    </div>
+    <button id="verifyBtn">Verify Signature</button>
+  </div>
+  <div class="result-container" id="resultContainer"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+  <script>
+    // You will need to include a script that provides a SHA-256 function.
+    // Here we assume a sha256 function is available.
+    
+    document.getElementById('verifyBtn').addEventListener('click', function() {
+      var signature = document.getElementById('signature').value;
+      var message = document.getElementById('message').value;
+      
+      // Hash the message
+      var messageHash = sha256(message);
+
+      var data = {
+        signature: signature,
+        message_hash: messageHash
+      };
+
+      fetch('/verify_signature', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(result) {
+        var resultContainer = document.getElementById('resultContainer');
+        resultContainer.textContent = result.result;
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  </script>
+</body>
+</html>

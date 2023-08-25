@@ -1,0 +1,5 @@
+services:
+  my_service:
+    image: my-image
+    ports:
+      - "4637:5000"
