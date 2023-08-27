@@ -1,0 +1,258 @@
+with open("../public/back.txt") as notes:
+    b = notes.readlines()
+    b = [i.strip().split() for i in b]
+
+with open("../public/front.txt") as notes:
+    f = notes.readlines()
+    f = [i.strip().split() for i in f]
+
+with open("../public/right.txt") as notes:
+    r = notes.readlines()
+    r = [i.strip().split() for i in r]
+
+with open("../public/left.txt") as notes:
+    l = notes.readlines()
+    l = [i.strip().split() for i in l]
+
+with open("../public/top.txt") as notes:
+    u = notes.readlines()
+    u = [i.strip().split() for i in u]
+
+with open("../public/bottom.txt") as notes:
+    d = notes.readlines()
+    d = [i.strip().split() for i in d]
+
+def cetak():
+    for i in b:
+        print(i)
+    print()
+    for i in l:
+        print(i)
+    print()
+    for i in d:
+        print(i)
+    print()
+    for i in f:
+        print(i)
+    print()
+    for i in u:
+        print(i)
+    print()
+    for i in r:
+        print(i)
+    print()
+
+def R():
+    global f, u, b, d, r
+    # muter sisi kanan
+    temp = [[r[i][j] for i in range(3)[::-1]] for j in range(3)]
+    r = temp
+
+    # muter sisi lainnya
+    temp = [f[i][2] for i in range(3)]
+    for i in range(3):
+        f[i][2] = d[i][2]
+        d[i][2] = b[2-i][0]
+        b[2-i][0] = u[i][2]
+        u[i][2] = temp[i]
+
+def R_():
+    global f, u, b, d, r
+    # muter sisi kanan
+    temp = [[r[i][j] for i in range(3)] for j in range(3)[::-1]]
+    r = temp
+
+    # muter sisi lainnya
+    temp = [f[i][2] for i in range(3)]
+    for i in range(3):
+        f[i][2] = u[i][2]
+        u[i][2] = b[2-i][0]
+        b[2-i][0] = d[i][2]
+        d[i][2] = temp[i]
+    
+def L():
+    global f, u, b, d, l
+    # muter sisi kiri
+    temp = [[l[i][j] for i in range(3)[::-1]] for j in range(3)]
+    l = temp
+
+    # muter sisi lainnya
+    temp = [f[i][0] for i in range(3)]
+    for i in range(3):
+        f[i][0] = u[i][0]
+        u[i][0] = b[2-i][2]
+        b[2-i][2] = d[i][0]
+        d[i][0] = temp[i]
+
+def L_():
+    global f, u, b, d, l
+    # muter sisi kiri
+    temp = [[l[i][j] for i in range(3)] for j in range(3)[::-1]]
+    l = temp
+
+    # muter sisi lainnya
+    temp = [f[i][0] for i in range(3)]
+    for i in range(3):
+        f[i][0] = d[i][0]
+        d[i][0] = b[2-i][2]
+        b[2-i][2] = u[i][0]
+        u[i][0] = temp[i]
+    
+def U():
+    global f, u, b, l, r
+    # muter sisi atas
+    temp = [[u[i][j] for i in range(3)[::-1]] for j in range(3)]
+    u = temp
+
+    # muter sisi lainnya
+    temp = [f[0][i] for i in range(3)]
+    for i in range(3):
+        f[0][i] = r[0][i]
+        r[0][i] = b[0][i]
+        b[0][i] = l[0][i]
+        l[0][i] = temp[i]
+
+def U_():
+    global f, u, b, l, r
+    # muter sisi atas
+    temp = [[u[i][j] for i in range(3)] for j in range(3)[::-1]]
+    u = temp
+
+    # muter sisi lainnya
+    temp = [f[0][i] for i in range(3)]
+    for i in range(3):
+        f[0][i] = l[0][i]
+        l[0][i] = b[0][i]
+        b[0][i] = r[0][i]
+        r[0][i] = temp[i]
+    
+def D():
+    global f, l, b, d, r
+    # muter sisi bawah
+    temp = [[d[i][j] for i in range(3)[::-1]] for j in range(3)]
+    d = temp
+
+    # muter sisi lainnya
+    temp = [f[2][i] for i in range(3)]
+    for i in range(3):
+        f[2][i] = l[2][i]
+        l[2][i] = b[2][i]
+        b[2][i] = r[2][i]
+        r[2][i] = temp[i]
+
+def D_():
+    global f, l, b, d, r
+    # muter sisi bawah
+    temp = [[d[i][j] for i in range(3)] for j in range(3)[::-1]]
+    d = temp
+
+    # muter sisi lainnya
+    temp = [f[2][i] for i in range(3)]
+    for i in range(3):
+        f[2][i] = r[2][i]
+        r[2][i] = b[2][i]
+        b[2][i] = l[2][i]
+        l[2][i] = temp[i]
+
+def F():
+    global f, u, l, d, r
+    # muter sisi depan
+    temp = [[f[i][j] for i in range(3)[::-1]] for j in range(3)]
+    f = temp
+    
+    # muter sisi lainnya
+    temp = [r[i][0] for i in range(3)]
+    for i in range(3):
+        r[i][0] = u[2][i]
+        u[2][i] = l[2-i][2]
+        l[2-i][2] = d[0][2-i]
+        d[0][2-i] = temp[i]
+
+def F_():
+    global f, u, l, d, r
+    # muter sisi depan
+    temp = [[f[i][j] for i in range(3)] for j in range(3)[::-1]]
+    f = temp
+    
+    # muter sisi lainnya
+    temp = [r[i][0] for i in range(3)]
+    for i in range(3):
+        r[i][0] = d[0][2-i]
+        d[0][2-i] = l[2-i][2]
+        l[2-i][2] = u[2][i]
+        u[2][i] = temp[i]
+
+def B():
+    global f, l, b, d, r
+    # muter sisi belkang
+    temp = [[b[i][j] for i in range(3)[::-1]] for j in range(3)]
+    b = temp
+
+    # muter sisi lainnya
+    temp = [r[i][2] for i in range(3)]
+    for i in range(3):
+        r[i][2] = d[2][2-i]
+        d[2][2-i] = l[2-i][0]
+        l[2-i][0] = u[0][i]
+        u[0][i] = temp[i]
+
+def B_():
+    global f, l, b, d, r
+    # muter sisi belkang
+    temp = [[b[i][j] for i in range(3)] for j in range(3)[::-1]]
+    b = temp
+
+    # muter sisi lainnya
+    temp = [r[i][2] for i in range(3)]
+    for i in range(3):
+        r[i][2] = u[0][i]
+        u[0][i] = l[2-i][0]
+        l[2-i][0] = d[2][2-i]
+        d[2][2-i] = temp[i]
+
+notation = {
+    "R": R,
+    "L": L,
+    "U": U,
+    "D": D,
+    "F": F,
+    "B": B,
+    "R'": R_,
+    "L'": L_,
+    "U'": U_,
+    "D'": D_,
+    "F'": F_,
+    "B'": B_,
+}
+
+def run_move(moves):
+    for move in moves:
+        if "2" in move:
+            notation[move[0]]()
+            notation[move[0]]()
+        else:
+            notation[move]()
+
+solve = "R' D2 R' L U2 D2 F L2 F' L' F U' L2 B2 L2 D' L2 D' R2 B2".split()
+run_move(solve)
+
+with open("equations.txt", "w") as final:
+    for i in b:
+        for j in i:
+            final.write(j.replace("|", "\n"))
+    for i in l:
+        for j in i:
+            final.write(j.replace("|", "\n"))
+    for i in d:
+        for j in i:
+            final.write(j.replace("|", "\n"))
+    for i in f:
+        for j in i:
+            final.write(j.replace("|", "\n"))
+    for i in u:
+        for j in i:
+            final.write(j.replace("|", "\n"))
+    for i in r:
+        for j in i:
+            final.write(j.replace("|", "\n"))
+
