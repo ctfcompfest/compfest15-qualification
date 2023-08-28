@@ -7,7 +7,7 @@ by notnot
 ## Flag
 
 ```
-COMPFEST15{DosanDaero_Gangnam}
+COMPFEST15{DosanDaero_Gangnam_G2FW+QP}
 ```
 
 ## Description
@@ -20,9 +20,9 @@ I know you can find the street location. So please help me, yeah? Also, sorry fo
 
 **NOTE: Brute-force solutions in the writeups will not be considered valid.**
 
-Flag format: COMPFEST15{StreetNameWithoutDash_DistrictName}
+Flag format: COMPFEST15{StreetNameWithoutDash_DistrictName_BurberryStorePlusCode}
 
-Example: COMPFEST15{BanpoDaero_Geumjeong}
+Example: COMPFEST15{BanpoDaero_Geumjeong_RRXH+88}
 
 ## Difficulty
 

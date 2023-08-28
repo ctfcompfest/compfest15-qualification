@@ -31,4 +31,4 @@ Sekilas kelihatan beda karena ada satu gedung yang hilang, tapi kalau diteliti, 
 - Ada pohon di depannya (walaupun di foto Yujin, pohonnya lagi mati karena musim dingin)
 - Ada spot yang sama persis di lingkaran sebelah kanan
 
-Oke, karena sudah dapat lokasinya, kita tinggal ambil nama jalan "behind her", yaitu Dosan-Daero dan di-format jadi `DosanDaero`. Jalan ini ada di district `Gangnam`, jadi flagnya `COMPFEST15{DosanDaero_Gangnam}`.
+Oke, karena sudah dapat lokasinya, kita tinggal ambil nama jalan "behind her", yaitu Dosan-Daero dan di-format jadi `DosanDaero`. Jalan ini ada di district `Gangnam`, lalu plus code toko Burberry nya G2FW+QP jadi flagnya `COMPFEST15{DosanDaero_Gangnam_G2FW+QP}`.
