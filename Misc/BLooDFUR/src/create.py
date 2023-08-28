@@ -7,32 +7,14 @@ assert len(f) >= 54 and len(f) % 54 == 0
 each = len(f)//54
 parts = [f[i*each:i*each+each] for i in range(0, 54)]
 
-b = [parts[i:i+3] for i in range(0, 9, 3)]
-l = [parts[i:i+3] for i in range(9, 18, 3)]
-d = [parts[i:i+3] for i in range(18, 27, 3)]
-f = [parts[i:i+3] for i in range(27, 36, 3)]
-u = [parts[i:i+3] for i in range(36, 45, 3)]
-r = [parts[i:i+3] for i in range(45, 54, 3)]
+b, l, d, f, u, r = [[parts[i:i+3] for i in range(j*9, j*9+9, 3)] for j in range(6)]
 
 def cetak():
-    for i in b:
-        print(i)
-    print()
-    for i in l:
-        print(i)
-    print()
-    for i in d:
-        print(i)
-    print()
-    for i in f:
-        print(i)
-    print()
-    for i in u:
-        print(i)
-    print()
-    for i in r:
-        print(i)
-    print()
+    sides = (b, l, d, f, u, r)
+    for side in sides:
+        for i in side:
+            print(i)
+        print()
 
 def R():
     global f, u, b, d, r
@@ -228,32 +210,12 @@ def run_move(moves):
 scramble = "U2 L' D2 F U B2 F2 L2 D' L' U B D2 U' L' R' D' F' L' R' D2 U2 F L F L' B D' L R'".split()
 run_move(scramble)
 
-with open("back.txt", "w") as side:
-    for i in b:
-        side.write(" ".join(i) + "\n")
-os.system("cp back.txt ../public")
+# cetak()
 
-with open("front.txt", "w") as side:
-    for i in f:
-        side.write(" ".join(i) + "\n")
-os.system("cp front.txt ../public")
-
-with open("right.txt", "w") as side:
-    for i in r:
-        side.write(" ".join(i) + "\n")
-os.system("cp right.txt ../public")
-
-with open("left.txt", "w") as side:
-    for i in l:
-        side.write(" ".join(i) + "\n")
-os.system("cp left.txt ../public")
-
-with open("top.txt", "w") as side:
-    for i in u:
-        side.write(" ".join(i) + "\n")
-os.system("cp top.txt ../public")
-
-with open("bottom.txt", "w") as side:
-    for i in d:
-        side.write(" ".join(i) + "\n")
-os.system("cp bottom.txt ../public")
+sides = (b, l, d, f, u, r)
+file_names = ["back", "left", "bottom", "front", "top", "right"]
+for file_name, side in zip(file_names, sides):
+    with open(f"{file_name}.txt", "w") as ff:
+        for i in side:
+            ff.write(" ".join(i) + "\n")
+    os.system(f"cp {file_name}.txt ../public")

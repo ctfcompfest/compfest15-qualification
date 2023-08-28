@@ -1,46 +1,19 @@
-with open("../public/back.txt") as notes:
-    b = notes.readlines()
-    b = [i.strip().split() for i in b]
+file_names = ["back", "left", "bottom", "front", "top", "right"]
+data = []
 
-with open("../public/front.txt") as notes:
-    f = notes.readlines()
-    f = [i.strip().split() for i in f]
+for file_name in file_names:
+    with open(f"../public/{file_name}.txt", "r") as notes:
+        side = [i.strip().split() for i in notes.readlines()]
+        data.append(side)
 
-with open("../public/right.txt") as notes:
-    r = notes.readlines()
-    r = [i.strip().split() for i in r]
-
-with open("../public/left.txt") as notes:
-    l = notes.readlines()
-    l = [i.strip().split() for i in l]
-
-with open("../public/top.txt") as notes:
-    u = notes.readlines()
-    u = [i.strip().split() for i in u]
-
-with open("../public/bottom.txt") as notes:
-    d = notes.readlines()
-    d = [i.strip().split() for i in d]
+b, l, d, f, u, r = data
 
 def cetak():
-    for i in b:
-        print(i)
-    print()
-    for i in l:
-        print(i)
-    print()
-    for i in d:
-        print(i)
-    print()
-    for i in f:
-        print(i)
-    print()
-    for i in u:
-        print(i)
-    print()
-    for i in r:
-        print(i)
-    print()
+    sides = (b, l, d, f, u, r)
+    for side in sides:
+        for i in side:
+            print(i)
+        print()
 
 def R():
     global f, u, b, d, r
@@ -233,26 +206,16 @@ def run_move(moves):
         else:
             notation[move]()
 
+# cetak()
+
 solve = "R' D2 R' L U2 D2 F L2 F' L' F U' L2 B2 L2 D' L2 D' R2 B2".split()
 run_move(solve)
 
-with open("equations.txt", "w") as final:
-    for i in b:
-        for j in i:
-            final.write(j.replace("|", "\n"))
-    for i in l:
-        for j in i:
-            final.write(j.replace("|", "\n"))
-    for i in d:
-        for j in i:
-            final.write(j.replace("|", "\n"))
-    for i in f:
-        for j in i:
-            final.write(j.replace("|", "\n"))
-    for i in u:
-        for j in i:
-            final.write(j.replace("|", "\n"))
-    for i in r:
-        for j in i:
-            final.write(j.replace("|", "\n"))
+# cetak()
 
+sides = (b, l, d, f, u, r)
+with open("equations.txt", "w") as final:
+    for side in sides:
+        for row in side:
+            for sq in row:
+                final.write(sq.replace("|", "\n"))
