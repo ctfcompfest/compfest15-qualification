@@ -1,0 +1,9 @@
+all:
+	gcc -no-pie -fstack-protector-all -Wl,-z,relro -o chall chall.c
+	cp ./chall ../public/chall
+	pwninit --bin chall --no-template
+clean:
+	rm -f chall
+	rm -f chall_patched
+	rm -f ../public/chall
+	rm -f libc.so.6
