@@ -46,19 +46,17 @@ class KatVM:
         return self.memory.pop() == value
 
 
-# "command_name": (command_function, required_argcount)
-cmd_map: dict[str, tuple[Callable[[KatVM], Callable], int]] = {
-    "left": (lambda vm: vm.left, 1),
-    "right": (lambda vm: vm.right, 1),
-    "store": (lambda vm: vm.store, 1),
-    "print": (lambda vm: vm.print, 0),
-    "input": (lambda vm: vm.input, 0),
-    "push": (lambda vm: vm.push, 0),
-    "popeq": (lambda vm: vm.popeq, 1),
-    "quit": (lambda vm: exit, 0),
-}
 # Just the list above, for easier bytecode translation
-cmds = ["left", "right", "store", "print", "input", "push", "popeq", "quit"]
+cmds: list[tuple[Callable, int]] = [
+    (lambda vm: vm.left, 1),
+    (lambda vm: vm.right, 1),
+    (lambda vm: vm.store, 1),
+    (lambda vm: vm.print, 0),
+    (lambda vm: vm.input, 0),
+    (lambda vm: vm.push, 0),
+    (lambda vm: vm.popeq, 1),
+    (lambda vm: exit, 0),
+]
 
 
 def is_eof(f: BufferedReader):
@@ -74,14 +72,15 @@ def help_exit():
     exit(1)
 
 
-def read_instruction(f: BufferedReader) -> tuple[str, str] | str:
+def read_instruction(f: BufferedReader) -> tuple[tuple[Callable, int], str]:
     bytecode = f.read(1)
-    cmd = cmds[int.from_bytes(bytecode, "little")]
-    if cmd == "store":
+    num = int.from_bytes(bytecode, "little")
+    cmd = cmds[num]
+    if num == 2:
         str_len = int.from_bytes(f.read(8), "little")
         return cmd, f.read(str_len).decode()
 
-    if cmd_map[cmd][1] == 0:
+    if cmd[1] == 0:
         return cmd, ""
 
     return cmd, f.read(8).decode().strip("\x00")
@@ -92,17 +91,12 @@ def main(execfile: str):
     f = open(execfile, "rb")
     skip_next = False
     while not is_eof(f):
-        try:
-            cmd, arg = read_instruction(f)
-        except:
-            print("[ERR] Invalid bytecode")
-            break
-
+        cmd, arg = read_instruction(f)
         if skip_next:
             skip_next = False
             continue
 
-        func = cmd_map[cmd][0]
+        func = cmd[0]
         if arg:
             res = func(vm)(arg)
             if res == True:
@@ -115,4 +109,7 @@ def main(execfile: str):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         help_exit()
-    main(sys.argv[1])
+    try:
+        main(sys.argv[1])
+    except:
+        print("Segmentation fault")
