@@ -1,4 +1,4 @@
-# E2EBleed
+# Cloud Cheating
 
 by Synchx
 
@@ -7,7 +7,7 @@ by Synchx
 ## Flag
 
 ```
-COMPFEST15{flag_sha256(flag)[:10]}
+COMPFEST15{s0o_Ez_3z_EZ_1nFiN1t3_5t0r4gE_Gl1TcH}
 ```
 
 ## Description
