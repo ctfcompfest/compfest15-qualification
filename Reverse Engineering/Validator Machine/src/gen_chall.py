@@ -4,18 +4,36 @@ import string
 
 charset = string.ascii_letters
 flag = 'sup3r_l0ng_fL46_5o_7hAT_YOu_w0nT_Be_a3le_t0_s0LvE_1t_m4nuALLy_w3ll_tecHnicaLly_u_c4n_bU7_s1mpL3_gdb_scRipt1n9_1s_aLL_You_n33D_a95dff5469'
+fake_flag1 = '94211497f535b3ac1b9af8d350b8f3cb23f95b166a0e12971ed143e8d3c5d9ee228c2aa89d755cd857e0edde08b5dadd661fe02f6a3b524da92b1a090e16ad2e330c4933'
+fake_flag2 = 'ab5ce72a3a67aa732a6e883ec07a5db0706f4d785481538537e2e137b52bf34ff2c3f9e21785340bb426c8c295119eda88e42748b3e5a40d2e0820d1f67d1057938ae52e'
+flag += fake_flag1 + fake_flag2
 pairs = [flag[i:i+2][::-1] for i in range(0, len(flag), 2)]
 pairs_bin = list(map(s2b, pairs))
 
 lzcnt = lambda s: len(s) - len(s.lstrip('0'))
 tzcnt = lambda s: len(s) - len(s.rstrip('0'))
 
-code = "#include <stdio.h>\n"
-code += "char input[256];\n"
+code = """
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+char input[256];
+
+void detect_debugger() __attribute__((constructor));
+
+void gadget() {
+"""
+
+for i in range(68):
+    code += f'\tasm("call a{i}");\n'
+
+for i in range(68*2, 68*3):
+    code += f'\tasm("call a{i}");\n'
+
+code += "}\n"
 #################################################
-# l = [0, 6, 8, 12, 18, 22, 23, 24, 36, 40, 41, 45, 49, 55, 56, 59, 62]
-l = list(range(68))
+l = list(range(68*3))
 for i in l:
     code += f"""
 int n{i}() {{
@@ -366,9 +384,7 @@ int a{i}() {{
 
     code +="""
     );
-}
-"""
-
+}"""
 
 #################################################
 
@@ -378,9 +394,9 @@ int func(char* string) {{
         "xor r8, r8             \\n"
         "xor r9, r9             \\n"
         "mov r9w, word ptr[rdi] \\n"
-        "call a0                \\n"
+        "call a68                \\n"
         "or r8, r9              \\n" """
-for i in l[1:]:
+for i in l[68+1:2*len(l)//3]:
     code += f"""
         "add rdi, 2             \\n"
         "mov r9w, word ptr[rdi] \\n"
@@ -392,12 +408,45 @@ code += """
 """
 
 code += """
-void main() {
-   asm("push [rbp+8]");
-   asm("ret"); 
+void detect_debugger(){
+    int offsets[68*3];
+    """
 
+x = 17
+for i in range(68):
+    code += f'\toffsets[{i}] = (int)(&a{i} - (&func + {x}+ 10));\n'
+    x += 16
+
+x = 17
+for i in range(68*2, 68*3):
+    code += f'\toffsets[{i}] = (int)(&a{i} - (&func + {x}+10));\n'
+    x += 16
+
+    
+code += """
+    const unsigned char sc[] = {72, 49, 192, 72, 137, 194, 72, 137, 198, 72, 137, 199, 4, 101, 15, 5, 195};
+    int (*zzzz)() = (int(*)()) sc;
+    int i = zzzz();
+    if (i < 0) {
+    """
+x = 23
+for i in range(68*2, 68*3):
+    code += f'\t\tmemcpy(*func+{x}, offsets+{i}, 4);\n'
+    x += 16
+
+code += "\t} else {\n"
+
+x = 23
+for i in range(68):
+    code += f'\t\tmemcpy(*func+{x}, offsets+{i}, 4);\n'
+    x += 16
+
+code += "\t}\n}\n"
+
+code += """
+void main() {
    printf("Enter the flag: ");
-   scanf("%s", input);
+   scanf("%255s", input);
 
    func(input);
    __asm__(
@@ -405,11 +454,12 @@ void main() {
     "jne else\\n"
    );
    puts("Correct.");
-   asm("jmp end");
+   asm("jmp end2");
    asm("else:");
    puts("Incorrect.");
-   asm("end:");
+   asm("end2:");
 }"""
+
 
 with open('chall.c', 'w') as f:
     f.write(code)

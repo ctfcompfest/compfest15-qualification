@@ -16,16 +16,21 @@ Just a simple flag validator machine.
 Note: Wrap the flag with COMPFEST15{}
 
 ## Difficulty
-Tingkat kesulitan soal:  medium 
+Tingkat kesulitan soal: medium-hard
 
 ## Hints
 > Intentionally left empty
 
 ## Tags
-vm, gdb scripting
+vm, gdb scripting, anti-analysis
 
 ## Deployment
-> Intentionally left empty
+```text
+    python3 gen_chall.py && \
+    gcc -masm=intel chall.c -o chall -z execstack -s && \
+    objcopy --writable-text --set-section-flags .text=CONTENTS,ALLOC,LOAD,CODE chall && \
+    ./writable chall
+```
 
 ## Notes
 > Intentionally left empty
