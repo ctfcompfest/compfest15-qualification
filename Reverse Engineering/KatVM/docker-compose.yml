@@ -1,0 +1,8 @@
+version: "3"
+services:
+  katvm-compiler:
+    build: .
+    restart: on-failure
+    container_name: katvm-compiler
+    ports:
+      - 5000:5000

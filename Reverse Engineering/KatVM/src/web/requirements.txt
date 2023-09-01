@@ -1,0 +1,4 @@
+quart==0.18.4
+aiopath==0.6.11
+aiofiles==23.2.1
+hypercorn=0.14.4

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>COMPaste</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="w-full">
+        <div class="min-h-screen flex flex-col gap-8 items-center container mx-auto pt-16 max-w-4xl">
+            <h1 class="font-bold text-4xl flex flex-row gap-4 items-center">KatVM Compiler 😼</h1>
+
+            <div class="flex flex-col gap-4 p-4 bg-black rounded-lg w-full">
+                <form action="/" method="POST" class="flex flex-col gap-2">
+                    <textarea name="content" class="textarea textarea-bordered" placeholder="Content" cols="150" rows="10" style="font-family: monospace;"></textarea>
+                    <button class="btn btn-primary" type="submit">Compile</button>
+                </form>
+            </div>
+
+            <div>
+                <ul class="list list-disc">
+                    <li><code>left &lt;N&gt;</code>, <code>right &lt;N&gt;</code>: Move the tape head to left or right by N</li>
+                    <li><code>store &lt;STRING&gt;</code>: Store string to from current head, the head will move right after the string</li>
+                    <li><code>print</code>: Print from head to next empty</li>
+                    <li><code>input</code>: Input from stdin and store it in current head, the head will move right after the string</li>
+                    <li><code>push</code>: Push current head to stack</li>
+                    <li><code>popeq &lt;CHAR&gt;</code>: Pop current stack, and compare the character with given char. If true, it will skip next instruction</li>
+                    <li><code>quit</code>: Exit</li>
+                </ul>                    
+            </div>
+        </div>
+    </div>
+    <script>
+        twemoji.parse(document.body);
+    </script>
+</body>
+</html>

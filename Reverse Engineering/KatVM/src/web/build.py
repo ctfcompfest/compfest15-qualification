@@ -57,6 +57,7 @@ def main(source: str, output: str):
         if len(arg) != 0:
             fexec.write(arg[0].encode().ljust(8, b"\0"))
 
+    fexec.close()
     print("Compiled successfully.")
 
 
