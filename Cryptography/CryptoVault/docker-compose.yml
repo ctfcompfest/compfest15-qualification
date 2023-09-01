@@ -1,5 +1,6 @@
 services:
   my_service:
-    image: my-image
+    build: .
+    restart: on-failure
     ports:
-      - "4637:5000"
+      - "10006:5000"

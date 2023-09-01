@@ -4,4 +4,4 @@ services:
     build:
       context: .
     ports:
-        - "9999:9999"
+        - "10004:9999"
