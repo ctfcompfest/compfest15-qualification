@@ -20,7 +20,7 @@ medium
 * Like RSA, the key behind decryption is to find order of group. Can you find it?
 
 ## Tags
-cryptosystem, abstract algebra
+cryptosystem, group theory
 
 ## Deployment
 > Intentionally left empty
