@@ -22,8 +22,17 @@ def main(source: str, output: str):
         "quit": (7, 0),
     }
     for line in script:
+        if not line.strip() or line.startswith("#"):
+            continue
         cmd, *arg = line.strip().split(" ", 1)
 
+        cleaned_args: list[str] = []
+        for token in arg:
+            if token == "#":
+                break
+            cleaned_args.append(token)
+
+        arg = cleaned_args
         if cmd not in cmds:
             print(f"[ERR] Cannot compile, cannot find command {cmd}.")
             exit(1)

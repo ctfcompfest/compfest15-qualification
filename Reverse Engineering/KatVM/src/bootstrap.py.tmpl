@@ -1,0 +1,14 @@
+import base64
+import tempfile
+import sys
+from pathlib import Path
+
+modules: list[tuple[str, bytes]] = {{DATA}}
+with tempfile.TemporaryDirectory() as tmpdir:
+    sys.path.append(tmpdir)
+    dir = Path(tmpdir)
+    for module in modules:
+        with open(dir.joinpath(module[0] + ".pyc"), "wb") as f:
+            f.write(base64.b64decode(module[1]))
+    
+    __import__("katvm").main()
