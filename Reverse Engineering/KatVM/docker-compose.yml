@@ -5,4 +5,4 @@ services:
     restart: on-failure
     container_name: katvm-compiler
     ports:
-      - 5000:5000
+      - 8000:8000
