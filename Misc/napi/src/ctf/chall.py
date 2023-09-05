@@ -44,4 +44,7 @@ def admin(password_io=None):
     
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except:
+        print("Something horribly wrong happened")

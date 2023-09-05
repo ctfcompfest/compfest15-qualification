@@ -3,4 +3,4 @@
 Dear admins, I have received information that a prisoner is trying to get access to the flag.
 I have moved the flag somewhere safe.
 I would advise you not to access the flag right now. 
-But if there is an urgent matter, login to admin@<ip-address>:6969 with your password as the SSH key to access the flag.
+But if there is an urgent matter, login to admin@THIS_SERVER_IP:10009 with your password as the SSH key to access the flag.
