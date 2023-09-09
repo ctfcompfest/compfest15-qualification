@@ -5,7 +5,7 @@ by swusjask
 ## Flag
 
 ```
-COMPFEST15{bezout_identity_is_key_8316a2afd2}
+COMPFEST15{gcd_is_too_powerful_to_get_factorization_78010ce551}
 ```
 
 ## Description

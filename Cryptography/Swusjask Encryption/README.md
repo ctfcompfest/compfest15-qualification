@@ -5,7 +5,7 @@ by swusjask
 ## Flag
 
 ```
-COMPFEST15{multiplicative_group_modulo_polynomial_fbfb064756}
+COMPFEST15{find_the_order_of_group_fbfb064756}
 ```
 
 ## Description

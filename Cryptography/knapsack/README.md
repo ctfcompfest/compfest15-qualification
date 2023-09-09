@@ -5,7 +5,7 @@ by swusjask
 ## Flag
 
 ```
-COMPFEST15{D4ngerr_LLL_1s_Ev3ryWh3r3_ed2c699bb3}
+COMPFEST15{merkle_hellman_knapsack_vulnerability_ed2c699bb3}
 ```
 
 ## Description

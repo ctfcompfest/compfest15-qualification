@@ -1,6 +1,6 @@
 from Crypto.Util.number import getPrime, bytes_to_long
 
-FLAG = b"COMPFEST15{bezout_identity_is_key_8316a2afd2}".ljust(256, b"\x00")
+FLAG = b"COMPFEST15{gcd_is_too_powerful_to_get_factorization_78010ce551}".ljust(256, b"\x00")
 
 class RSA:
     def __init__(self):
