@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSubmit(View v) {
         String licenseKey = ((EditText) findViewById(R.id.editTextLicenseKey)).getText().toString();
 
-        if (Utils.encrypt(licenseKey).equals("6c502456a4b9014a8f75af9319169cf278c59156e6984aad2072a5406cf59eeb7127ec014186ef5a9aa484bbb37277cd411e")) {
+        if (Utils.encrypt(licenseKey).equals("650e2014a6d7041d8024a8984e47cc9810cead06b0c24dfc742aa71c6de29cb42679b1544286ed09cbf2d2bebd7c2ccd1148")) {
             ((TextView)findViewById(R.id.textView)).setText(String.format("Correct! Here's your Flag: COMPFEST15{%s}", licenseKey));
         } else {
             ((TextView)findViewById(R.id.textView)).setText("Wrong!");
