@@ -8,6 +8,7 @@ by k3ng
 
 ```
 COMPFEST15{m0D3rn_D4y_5p1es_cb06cc3651}
+MIRROR: COMPFEST15{b4cKgR0unD_Ch3CK_uR_1nT3rnS_cff5ca334b}
 ```
 
 ## Description
@@ -16,6 +17,8 @@ I have suspicions that our graphic designer intern is stealing confidential docu
 sending them to our competitor. I have sent her PC's memory dump to analyze.
 
 https://drive.google.com/file/d/18u8OSCejwV5Wo7Ezh7NLlVpuhkMQbw4d/view?usp=sharing
+
+MIRROR: https://drive.google.com/file/d/1923XC_EyweYVt_8CsE9Luysq2njkfBN3/view?usp=sharing
 
 ## Difficulty
 easy
