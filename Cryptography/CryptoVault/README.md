@@ -7,7 +7,7 @@ by fahrul
 ## Flag
 
 ```
-COMPFEST15{mU57_vErIFy_TH3_h4SH_373dd88e55}
+COMPFEST15{3CDSA_I5_7r1CKy_7O_IMPlEM3N7_85a7f9cdfe}
 ```
 
 ## Description

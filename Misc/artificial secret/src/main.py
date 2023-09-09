@@ -7,7 +7,7 @@ import openai
 client = discord.Client(intents=discord.Intents.all())
 #dihide, jangan dicolong ya bang
 openai.api_key = "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"
-flag = "d0nT_STOR3_S3CrET_On_Pr0MP7_874131ddff"
+flag = "C3rT1F1Ed_AI_645L1Gh73R_ef11b7f7f9"
 
 
 async def get_balance(msg):

@@ -7,3 +7,5 @@ Given public key P, pick random nonzero values a and b. Compute R=aG+bP. Now (R.
 https://twitter.com/pwuille/status/1063582706288586752
 
 script on solve.py
+
+copy the value and send the request directly to the API

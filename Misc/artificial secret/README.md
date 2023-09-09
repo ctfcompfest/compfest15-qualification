@@ -7,7 +7,7 @@ by fahrul
 ## Flag
 
 ```
-COMPFEST15{d0nT_STOR3_S3CrET_On_Pr0MP7_874131ddff}
+COMPFEST15{C3rT1F1Ed_AI_645L1Gh73R_ef11b7f7f9}
 ```
 
 ## Description
@@ -17,6 +17,11 @@ I'm developing an AI Waifu chatbot startup but i'm too lazy to host my own LLMs,
 the bot is online as `lemond
 #8498` on the Discord server, but only talking in DMs. 
 (Note: this challenge requires no automation. Please do not automate your Discord account as that is a violation of Discord's Terms of Service and may lead to the termination of your account)
+
+The flag format is COMPFEST15{flag_sha256(flag)[0:10]}, the hash is there so you could verify you're getting the right flag or not.
+
+for example : 
+COMPFEST15{very_ez_58f54efc55} -> 58f54efc55 is the first 10 char of the sha256(very_ez)
 
 
 ## Difficulty

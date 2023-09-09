@@ -43,7 +43,7 @@ def verify_signature():
 def verify_ecdsa_signature(sig, message_hash):
     m = message_hash
     if PUBKEY.pubkey.verifies(m, sig):
-        return "COMPFEST15{mU57_vErIFy_TH3_h4SH_373dd88e55}"
+        return "COMPFEST15{3CDSA_I5_7r1CKy_7O_IMPlEM3N7_85a7f9cdfe}"
     else:
         return "skill issue ( ͡° ͜ʖ ͡°)"
 
