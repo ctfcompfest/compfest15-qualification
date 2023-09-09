@@ -208,7 +208,7 @@ def run_move(moves):
 
 # cetak()
 
-solve = "R' D2 R' L U2 D2 F L2 F' L' F U' L2 B2 L2 D' L2 D' R2 B2".split()
+solve = "D' R F R2 B2 U L2 D' B L' F2 R2 U2 B2 D' F2 U B2 L2".split()
 run_move(solve)
 
 # cetak()
