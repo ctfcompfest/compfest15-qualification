@@ -1,6 +1,6 @@
 # Writeup not simply corrupted
 
-Image is a 4-bit obfuscated PNG. Notice that the first 16 bytes of the `cat.png` resembles a JPG header:
+Image is a 4-bit obfuscated PNG. Notice that the first 16 bytes of the `cat.png` resembles a PNG header:
 
 `10 00 10 01 01 01 00 00 01 00 11 10 01 00 01 11`
 
@@ -25,7 +25,7 @@ output = open("chall.png", 'wb')
 for i in masuk.read():
     masuk_hex.append(f"{i:02x}")
 
-masuk_hex = [ ''.join(x) for x in zip(masuk_hex[0::4], masuk_hex[1::4], masuk_hex[2::4], masuk_hex[3::4]) ] 
+masuk_hex = [ ''.join(x) for x in zip(masuk_hex[0::4], masuk_hex[1::4], masuk_hex[2::4], masuk_hex[3::4]) ]
 for i in masuk_hex:
     hexx = hex(int(i, 2))
     hexx = hexx[2:]
@@ -34,11 +34,10 @@ for i in masuk_hex:
     output.write(unhexlify(hexx))
 ```
 
+...or you can actually put it on CyberChef.
+
 After the conversion, we were given the cat meme with the text "sir can i habe flag pls".
 
 ![](./chall.png)
 
-Nothing suspicious at first glance, but if you use tools such as stegsolve or AperiSolve to perform LSB steganography, you can see there's a hidden message in the LSB of the red bits.
-
-![](./solved.bmp)
-
+Nothing suspicious at first glance, but if you use tools such as stegsolve or AperiSolve to perform LSB steganography, you will see there's a hidden message in the LSB of the red bits.
