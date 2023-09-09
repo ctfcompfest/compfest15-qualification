@@ -3,7 +3,7 @@ password = open("creds.txt", "r")
 del __builtins__.__import__
 
 def main():
-    banned = ['eval', 'exec', 'import', 'open', 'system', 'globals', 'os', 'password', 'admin']
+    banned = ['eval', 'exec', 'import', 'open', 'system', 'globals', 'os', 'password', 'admin', 'pop', 'clear', 'remove']
 
     print("--- Prisoner Limited Access System ---")
 

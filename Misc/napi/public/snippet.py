@@ -1,7 +1,9 @@
 # ...
 
+del __builtins__.__import__
+
 def main():
-    banned = ['eval', 'exec', 'import', 'open', 'system', 'globals', 'os', 'password', 'admin']
+    banned = ['eval', 'exec', 'import', 'open', 'system', 'globals', 'os', 'password', 'admin', 'pop', 'clear', 'remove']
 
     print("--- Prisoner Limited Access System ---")
 
@@ -12,7 +14,7 @@ def main():
 
         while inp != "exit":
             for keyword in banned:
-                if keyword in inp.lower():
+                if keyword in inp.lower() or not inp.isascii():
                     print(f"Cannot execute unauthorized input {inp}")
                     print("I told you our system is hack-proof.")
                     exit()
