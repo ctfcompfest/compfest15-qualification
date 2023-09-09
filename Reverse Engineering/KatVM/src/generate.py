@@ -2,7 +2,7 @@ import random
 
 f = open("check.kat", "w")
 
-flag = "meowmeow~COMPFEST15{r3Ad1ng_byt3C0de_c4n_b3_r3ally_H4rd_y0u_kNow}"
+flag = "meowmeow~COMPFEST15{byt3C0de_r3Ad1ng_1s_C00L_f18a9b06feef8fa3b02262fde38b924f282e410950599b1b2842a1462851e5d2}"
 idxs = [i for i in range(len(flag))]
 random.shuffle(idxs)
 
