@@ -1,6 +1,9 @@
 import os
 
 f = open("math.txt", "r").read()
+f = f.replace("\n","|")
+if len(f) % 54 != 0:
+    f += "|"*(54-(len(f)%54))
 
 assert len(f) >= 54 and len(f) % 54 == 0
 
@@ -207,7 +210,7 @@ def run_move(moves):
         else:
             notation[move]()
 
-scramble = "U2 L' D2 F U B2 F2 L2 D' L' U B D2 U' L' R' D' F' L' R' D2 U2 F L F L' B D' L R'".split()
+scramble = "B2 R2 F' D R' F' D U B F' D' B R2 U' F L2 R2 B' D2 B U R2 U2 F L' D B2 L B2 F2".split()
 run_move(scramble)
 
 # cetak()
