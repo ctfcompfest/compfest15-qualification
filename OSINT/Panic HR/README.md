@@ -3,6 +3,11 @@
 by kilometer
 
 ---
+## Flag Mirror
+
+```
+COMPFEST15{th4nk_yoU_F0r_H3lp_Th1s_P4nn1ck_HR}
+```
 
 ## Flag
 
