@@ -8,7 +8,7 @@ createTorrent("./hippity_hop/",{
 	urlList : [["https://www.youtube.com/watch?v=nXbQlYKya5E","https://www.youtube.com/watch?v=gsNUS7PaAP0"]],
 },(err, torrent) => {
 	if (!err) {
-		fs.writeFile("wibu", torrent, (err, res) => {
+		fs.writeFile("weebs", torrent, (err, res) => {
 			if(err) console.log(err);
 		})
 		}
